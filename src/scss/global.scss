@@ -1,0 +1,25 @@
+html {
+  scrollbar-gutter: stable;
+}
+
+* {
+  font-family: "Kedebideri", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  min-height: 100dvh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: #fad7d785;
+
+  .no-scroll {
+    overflow: hidden;
+  }
+}
+
+.fw-normal {
+  font-weight: 400;
+}

@@ -1,0 +1,33 @@
+<div class="section">
+    <div class="section-header">
+        <h2 class="modelo-title">Modelo {{position}} rótate</h2>
+        <div class="section-title">{{title}}</div>
+    </div>
+    <div class="section-body">
+        <div id="{{id}}" class="swiper">
+            <div class="swiper-wrapper">
+                {{#images}}
+                    <div class="swiper-slide"><img src="{{.}}" alt="Blanket"></div>
+                {{/images}}
+            </div>
+        </div>
+        <div class="product-characteristics">
+            {{#dimensions}}
+                <div class="product-characteristic">Dimensions :
+                    <span class="fw-normal">{{dimensions}}</span>
+                </div>
+            {{/dimensions}}
+            {{#presentation}}
+                <div class="product-characteristic">Présentation :
+                    <span class="fw-normal">{{presentation}}</span>
+                </div>
+            {{/presentation}}
+            {{#comment}}
+                <div class="product-characteristic">Commentaire :
+                    <span class="fw-normal">{{comment}}</span>
+                </div>
+            {{/comment}}
+        </div>
+    </div>
+    <img class="to-next-section-icon" src="/icons/down.svg" alt="Next section button">
+</div>
