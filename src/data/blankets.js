@@ -1,5 +1,6 @@
 const blankets = [
     {
+        id: 1,
         position: "Uno",
         shop: "La Redoute",
         title: "Nappe de pique-nique feuillage",
@@ -9,9 +10,10 @@ const blankets = [
         ],
         dimensions: "150x200cm",
         presentation: "",
-        comment: "Qué lindo! Así podemos poner nuestros pompis sobre hojas tropicales. Sería como si estuviéramos de picnic en la Amazonía..."
+        advice: "Qué lindo! Así podemos poner nuestros pompis sobre hojas tropicales. Sería como si estuviéramos de picnic en la Amazonía..."
     },
     {
+        id: 2,
         position: "Dos",
         shop: "Decathlon",
         title: "Plaid couverture confort pour pique nique et camping",
@@ -22,9 +24,10 @@ const blankets = [
         ],
         dimensions: "170x140cm",
         presentation: "Ce plaid couverture de pique-nique est confortable, résistant et compact une fois plié. Son revêtement déperlant permet de vous isoler de l'humidité du sol. Idéal pour 4 personnes.",
-        comment: "Viva Francia! Y sus pinches cosas de Decathlon, bien prácticas."
+        advice: "Viva Francia! Y sus pinches cosas de Decathlon, bien prácticas."
     },
     {
+        id: 3,
         position: "Tres",
         shop: "Amazon",
         title: "Couverture pique nique impermeable avec sangles",
@@ -35,9 +38,10 @@ const blankets = [
         ],
         dimensions: " 200x200cm",
         presentation: "",
-        comment: "Ya te imagino con María en esta manta, bien chingona."
+        advice: "Ya te imagino con María en esta manta, bien chingona."
     },
     {
+        id: 4,
         position: "Cuatro",
         shop: "Amazon",
         title: "Tapis de plage léger et anti-sable",
@@ -48,7 +52,7 @@ const blankets = [
         ],
         dimensions: " 160x180cm",
         presentation: "",
-        comment: "Bien pequeño el güey! Ligero como una mariposa!"
+        advice: "Bien pequeño el güey! Ligero como una mariposa!"
     }
 ]
 

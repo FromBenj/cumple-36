@@ -17,7 +17,6 @@ function renderBlanketCarousel() {
         const id = `blanket-${index}`;
         const html = Mustache.render(carouselTemplate, {...b, id});
         sectionBlankets.insertAdjacentHTML("beforeend", html);
-        console.log(document.querySelector(`#${id}.swiper`));
 
         new Swiper(`#${id}.swiper`, {
             modules: [EffectCoverflow],
@@ -29,6 +28,10 @@ function renderBlanketCarousel() {
             loop: true,
             speed: 400,
             spaceBetween: 100,
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'bullets',
+            },
         });
     })
 }

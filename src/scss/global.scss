@@ -1,3 +1,9 @@
+$thistle: #cdb4dbff;
+$main-light-pink: #ffd0d817;
+$main-pink: #ffcad3;
+$icy-blue: #bde0feff;
+$main-blue: #79bdfd;
+
 html {
   scrollbar-gutter: stable;
 }
@@ -13,13 +19,33 @@ body {
   width: 100vw;
   margin: 0;
   padding: 0;
-  background-color: #fad7d785;
+  background-color: $main-light-pink;
+  overflow-x: hidden;
 
   .no-scroll {
     overflow: hidden;
   }
 }
 
-.fw-normal {
-  font-weight: 400;
+.container-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.py-1 {
+  padding: 0.25rem 0;
+}
+
+.w-100 {
+  width: 100%;
 }

@@ -1,33 +1,45 @@
-<div class="section">
+<div id="section-{{id}}" class="section">
     <div class="section-header">
-        <h2 class="modelo-title">Modelo {{position}} rótate</h2>
-        <div class="section-title">{{title}}</div>
+        <img class="section-header-bg" src="/images/blankets/beach-bg.jpg" alt="">
+        <div class="modelo-title-container">
+            <h2 class="modelo-title"> - Modelo {{position}}, rótate - </h2>
+        </div>
     </div>
     <div class="section-body">
+        <div class="section-title-container">
+            <div class="section-title">{{title}}</div>
+        </div>
         <div id="{{id}}" class="swiper">
             <div class="swiper-wrapper">
                 {{#images}}
                     <div class="swiper-slide"><img src="{{.}}" alt="Blanket"></div>
                 {{/images}}
+                <div class="swiper-pagination"></div>
             </div>
         </div>
         <div class="product-characteristics">
             {{#dimensions}}
-                <div class="product-characteristic">Dimensions :
-                    <span class="fw-normal">{{dimensions}}</span>
+                <div class="container-center py-1">
+                    <div class="product-characteristic-title">Dimensions :</div>
+                    <div class="text-center w-100">{{dimensions}}</div>
                 </div>
             {{/dimensions}}
             {{#presentation}}
-                <div class="product-characteristic">Présentation :
-                    <span class="fw-normal">{{presentation}}</span>
+                <div class="container-center py-1">
+                    <div class="product-characteristic-title">Présentation :</div>
+                    <div class="text-center w-100">{{presentation}}</div>
                 </div>
             {{/presentation}}
-            {{#comment}}
-                <div class="product-characteristic">Commentaire :
-                    <span class="fw-normal">{{comment}}</span>
+            {{#advice}}
+                <div class="container-center py-1">
+                    <div class="product-characteristic-title">Conseil :</div>
+                    <div class="text-justify w-100">{{advice}}</div>
                 </div>
-            {{/comment}}
+            {{/advice}}
         </div>
     </div>
-    <img class="to-next-section-icon" src="/icons/down.svg" alt="Next section button">
+    <div class="section-footer">
+        <img class="to-next-section-icon" src="/icons/down.svg" alt="Next section button" data-id="section-{{id}}">
+        <img class="to-last-section-icon" src="/icons/up.svg" alt="Next section button" data-id="section-{{id}}">
+    </div>
 </div>
