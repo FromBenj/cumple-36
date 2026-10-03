@@ -119,3 +119,34 @@
   padding: 0.2rem;
   background-color: pink;
 }
+
+#section-intro-blanket-message {
+  position: absolute;
+  width: 100%;
+  background: global.$main-strong-pink;
+  text-align: center;
+  color: white;
+  padding: 1rem 0;
+}
+
+#palm-trees-img {
+  height: 100%;
+  object-fit: cover;
+}
+
+#section-intro-blanket-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  bottom: 6rem;
+}
+
+#to-first-blanket-section {
+  width: 70px;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  padding: 0.2rem;
+  background-color: white;
+  }

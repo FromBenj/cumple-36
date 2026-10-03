@@ -1,10 +1,10 @@
 <div id="section-blanket-intro" class="section">
-    <div class="section-body">
-        <h1>ElIGE TU MANTEL DE PICNIC</h1>
+        <img id="palm-trees-img" src="/images/palm-trees.jpg" alt="Palm trees">
+    <div id="section-intro-blanket-message">
+        <h2 class="text-italic">Primero</h2>
+        <h1 class="fw-bold">Elige tu Mantel de picnic</h1>
     </div>
-</div>
-<div class="section-footer">
-    <img class="to-next-section-icon" src="/icons/down.svg" alt="Next section button" data-id="section-0">
-    <img class="to-last-section-icon" src="/icons/up.svg" alt="Next section button" data-id="section-0">
-</div>
+    <div id="section-intro-blanket-footer">
+        <img id="to-first-blanket-section" src="/icons/down-intro.svg" alt="Next section button">
+    </div>
 </div>

@@ -7,9 +7,11 @@ export default async function navigation() {
     const nextSectionBtns = document.getElementsByClassName("to-next-section-icon");
     const lastSectionBtns = document.getElementsByClassName("to-last-section-icon");
 
+    goFirstBanketSection();
     goNextSection(nextSectionBtns);
     nexSectionBtnAnim(nextSectionBtns);
     goLastSection(lastSectionBtns);
+
 }
 
 function goNextSection(nextSectionBtns) {
@@ -19,8 +21,9 @@ function goNextSection(nextSectionBtns) {
     const buttonsArray = Array.from(nextSectionBtns);
     buttonsArray.forEach(b => {
         const nextSection = getNextSection(b);
+        console.log(nextSection)
         if (!nextSection) return;
-
+        console.log(buttonsArray.length, nextSection)
         b.addEventListener("pointerup", async () => {
             await gsap.to(window, {
                 duration: 0.9,
@@ -37,7 +40,6 @@ function goNextSection(nextSectionBtns) {
 function goLastSection(lastSectionBtns) {
     if (!lastSectionBtns?.length) return;
 
-    lastSectionBtns[0].remove();
     const buttonsArray = Array.from(lastSectionBtns);
     buttonsArray.forEach(b => {
         const lastSection = getLastSection(b);
@@ -56,6 +58,31 @@ function goLastSection(lastSectionBtns) {
     })
 }
 
+function goFirstBanketSection() {
+    const btn = document.getElementById("section-intro-blanket-footer");
+    const nextSection = document.getElementById("section-1");
+    if (!btn || !nextSection) return;
+
+    gsap.to(btn, {
+        y: -20,
+        duration: 1.3,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+    });
+
+    btn.addEventListener("pointerup", async () => {
+        await gsap.to(window, {
+            duration: 0.9,
+            ease: "power2.inOut",
+            scrollTo: {
+                y: nextSection,
+                autoKill: true,
+            },
+        });
+    })
+}
+
 function nexSectionBtnAnim(nextSectionBtns) {
     if (!nextSectionBtns?.length) return;
 
@@ -71,7 +98,7 @@ function nexSectionBtnAnim(nextSectionBtns) {
 }
 
 const getNextSection = (b) => {
-    const baseId = "section-blanket-";
+    const baseId = "section-";
     const id = b?.dataset?.id?.replace(baseId, "");
     if (!id) return;
 
@@ -80,7 +107,7 @@ const getNextSection = (b) => {
 }
 
 const getLastSection = (b) => {
-    const baseId = "section-blanket-";
+    const baseId = "section-";
     const id = b?.dataset?.id?.replace(baseId, "");
     if (!id) return;
 
