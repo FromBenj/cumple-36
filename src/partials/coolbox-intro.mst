@@ -1,0 +1,10 @@
+<div id="section-5" class="section-coolbox-intro section">
+        <img id="fresh-img" src="/images/fresh.jpg" alt="Fresh image">
+    <div id="section-intro-coolbox-message">
+        <h2 class="text-italic">Segundo</h2>
+        <h1 class="fw-bold">Elige tu nevera</h1>
+    </div>
+    <div id="section-intro-coolbox-footer">
+        <img id="to-first-coolbox-section" src="/icons/down-intro.svg" alt="Next section button">
+    </div>
+</div>

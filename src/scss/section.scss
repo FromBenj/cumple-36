@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  position: relative;
 }
 
 .section-header {
@@ -118,7 +119,7 @@
   background-color: pink;
 }
 
-#section-intro-blanket-message {
+#section-intro-blanket-message, #section-intro-coolbox-message {
   position: absolute;
   width: 100%;
   background: global.$main-strong-pink;
@@ -127,13 +128,13 @@
   padding: 1rem 0;
 }
 
-#palm-trees-img {
+#palm-trees-img, #fresh-img {
   height: 100%;
   object-fit: cover;
   filter: blur(1.5px) opacity(0.85);
 }
 
-#section-intro-blanket-footer {
+#section-intro-blanket-footer, #section-intro-coolbox-footer {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -142,10 +143,10 @@
   bottom: 6rem;
 }
 
-#to-first-blanket-section {
+#to-first-blanket-section, #to-first-coolbox-section {
   width: 70px;
   aspect-ratio: 1;
   border-radius: 100%;
   padding: 0.2rem;
   background-color: white;
-  }
+}

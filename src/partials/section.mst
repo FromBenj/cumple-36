@@ -11,7 +11,7 @@
         <div id="{{swiperId}}" class="swiper">
             <div class="swiper-wrapper">
                 {{#images}}
-                    <div class="swiper-slide"><img src="{{.}}" alt="Blanket"></div>
+                    <div class="swiper-slide"><img src="{{.}}" alt="Product slide"></div>
                 {{/images}}
             </div>
             <div class="swiper-pagination"></div>
