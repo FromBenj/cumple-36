@@ -21,9 +21,8 @@ function goNextSection(nextSectionBtns) {
     const buttonsArray = Array.from(nextSectionBtns);
     buttonsArray.forEach(b => {
         const nextSection = getNextSection(b);
-        console.log(nextSection)
         if (!nextSection) return;
-        console.log(buttonsArray.length, nextSection)
+
         b.addEventListener("pointerup", async () => {
             await gsap.to(window, {
                 duration: 0.9,
@@ -110,8 +109,9 @@ const getLastSection = (b) => {
     const baseId = "section-";
     const id = b?.dataset?.id?.replace(baseId, "");
     if (!id) return;
-
-    const lastId = baseId + (parseInt(id) - 1);
+    console.log(id)
+    const lastId = id === "1" ? "section-blanket-intro" : baseId + (parseInt(id) - 1);
+    console.log(lastId)
 
     return document.getElementById(lastId);
 }

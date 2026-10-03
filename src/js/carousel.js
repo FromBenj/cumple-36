@@ -25,7 +25,7 @@ function renderBlanketCarousel(sectionBlankets) {
 
     blankets.forEach((b) => {
         const swiperId = `blanket-${b.id}`;
-        const html = Mustache.render(carouselTemplate, b);
+        const html = Mustache.render(carouselTemplate, {...b, swiperId});
         sectionBlankets.insertAdjacentHTML("beforeend", html);
 
         new Swiper(`#${swiperId}.swiper`, {

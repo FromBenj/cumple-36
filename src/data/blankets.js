@@ -23,7 +23,7 @@ const blankets = [
             "/images/blankets/decathlon-3.jpg"
         ],
         dimensions: "170x140cm",
-        presentation: "Ce plaid couverture de pique-nique est confortable, résistant et compact une fois plié. Son revêtement déperlant permet de vous isoler de l'humidité du sol. Idéal pour 4 personnes.",
+        presentation: "Plaid couverture de pique-nique confortable, résistant et compact. Revêtement déperlant, idéal pour 4 personnes.",
         advice: "Viva Francia! Y sus pinches cosas de Decathlon, bien prácticas."
     },
     {

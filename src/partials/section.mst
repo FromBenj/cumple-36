@@ -8,7 +8,7 @@
         <div class="section-title-container">
             <div class="section-title">{{title}}</div>
         </div>
-        <div id="{{id}}" class="swiper">
+        <div id="{{swiperId}}" class="swiper">
             <div class="swiper-wrapper">
                 {{#images}}
                     <div class="swiper-slide"><img src="{{.}}" alt="Blanket"></div>
