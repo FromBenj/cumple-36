@@ -16,7 +16,7 @@ const blankets = [
         id: 2,
         position: "Dos",
         shop: "Decathlon",
-        title: "Plaid couverture confort pour pique nique et camping",
+        title: "Plaid couverture confort pour pique-nique et camping",
         images: [
             "/images/blankets/decathlon-1.jpg",
             "/images/blankets/decathlon-2.jpg",
@@ -30,7 +30,7 @@ const blankets = [
         id: 3,
         position: "Tres",
         shop: "Amazon",
-        title: "Couverture pique nique impermeable avec sangles",
+        title: "Couverture pique-nique impermeable avec sangles",
         images: [
             "/images/blankets/amazon-color-1.jpg",
             "/images/blankets/amazon-color-2.jpg",

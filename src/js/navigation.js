@@ -10,7 +10,6 @@ export default async function navigation() {
     goNextSection(nextSectionBtns);
     nexSectionBtnAnim(nextSectionBtns);
     goLastSection(lastSectionBtns);
-
 }
 
 function goNextSection(nextSectionBtns) {
@@ -59,7 +58,6 @@ function goLastSection(lastSectionBtns) {
 
 function nexSectionBtnAnim(nextSectionBtns) {
     if (!nextSectionBtns?.length) return;
-    console.log(nextSectionBtns)
 
     for (let i = 0; i < nextSectionBtns.length; i++) {
         gsap.to(nextSectionBtns[i], {
@@ -78,7 +76,6 @@ const getNextSection = (b) => {
     if (!id) return;
 
     const nextId = baseId + (parseInt(id) + 1);
-
     return document.getElementById(nextId);
 }
 

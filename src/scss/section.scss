@@ -16,15 +16,13 @@
   max-height: 200px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
-  border-radius: 20px;
   overflow: hidden;
 }
 
 .modelo-title-container {
-  height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,7 +31,6 @@
   opacity: 60%;
   width: 100%;
   padding: 1.5rem 0;
-  border-radius: 6px;
 }
 
 .modelo-title {
@@ -63,6 +60,8 @@
   justify-content: center;
   align-items: center;
   flex: 1;
+  color: white;
+  font-size: 1.2rem;
 }
 
 .section-title-container {
@@ -71,7 +70,7 @@
 }
 
 .section-title {
-  background-color: pink;
+  background-color: #5cd0bd;
   font-weight: 500;
   text-align: center;
   font-size: 1.3rem;
@@ -83,11 +82,15 @@
 
 .product-characteristics {
   padding: 1rem 1rem 2rem 1rem;
+  font-size: 1.3rem;
 }
 
 .product-characteristic-title {
   font-weight: bold;
-  text-align: justify;
+  text-align: center;
+  background-color: #5cd0bd;
+  padding: 0.4rem 1rem;
+  border-radius: 100px;
 }
 
 .section-footer {

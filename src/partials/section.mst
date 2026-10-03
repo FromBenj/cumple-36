@@ -1,6 +1,5 @@
 <div id="section-{{id}}" class="section">
     <div class="section-header">
-        <img class="section-header-bg" src="/images/blankets/beach-bg.jpg" alt="">
         <div class="modelo-title-container">
             <h2 class="modelo-title"> - Modelo {{position}}, rótate - </h2>
         </div>
@@ -14,26 +13,26 @@
                 {{#images}}
                     <div class="swiper-slide"><img src="{{.}}" alt="Blanket"></div>
                 {{/images}}
-                <div class="swiper-pagination"></div>
             </div>
+            <div class="swiper-pagination"></div>
         </div>
         <div class="product-characteristics">
             {{#dimensions}}
-                <div class="container-center py-1">
+                <div class="container-center py-2">
                     <div class="product-characteristic-title">Dimensions :</div>
-                    <div class="text-center w-100">{{dimensions}}</div>
+                    <div class="text-center w-100 pt-2">{{dimensions}}</div>
                 </div>
             {{/dimensions}}
             {{#presentation}}
-                <div class="container-center py-1">
+                <div class="container-center py-2">
                     <div class="product-characteristic-title">Présentation :</div>
-                    <div class="text-center w-100">{{presentation}}</div>
+                    <div class="text-center w-100 pt-2">{{presentation}}</div>
                 </div>
             {{/presentation}}
             {{#advice}}
-                <div class="container-center py-1">
+                <div class="container-center py-2">
                     <div class="product-characteristic-title">Conseil :</div>
-                    <div class="text-justify w-100">{{advice}}</div>
+                    <div class="text-center w-100 pt-2">{{advice}}</div>
                 </div>
             {{/advice}}
         </div>

@@ -1,0 +1,10 @@
+<div id="section-blanket-intro" class="section">
+    <div class="section-body">
+        <h1>ElIGE TU MANTEL DE PICNIC</h1>
+    </div>
+</div>
+<div class="section-footer">
+    <img class="to-next-section-icon" src="/icons/down.svg" alt="Next section button" data-id="section-0">
+    <img class="to-last-section-icon" src="/icons/up.svg" alt="Next section button" data-id="section-0">
+</div>
+</div>

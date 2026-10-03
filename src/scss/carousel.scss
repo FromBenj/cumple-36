@@ -1,6 +1,13 @@
+@use "global";
+
 .swiper {
   width: 92%;
   aspect-ratio: 16 / 9;
+}
+
+.swiper-pagination-bullet-active {
+  background: global.$main-strong-pink;
+  opacity: 1;
 }
 
 .swiper-slide {
@@ -10,7 +17,7 @@
   width: 100%;
   height: 100%;
   background: white;
-  border-radius: 100px;
+  border-radius: 35px;
 
   img {
     width: auto;
