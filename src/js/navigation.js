@@ -8,33 +8,32 @@ export default async function navigation() {
     const lastSectionBtns = document.getElementsByClassName("to-last-section-icon");
 
     goFirstCategorySection();
-    goNextSection(nextSectionBtns);
     nexSectionBtnAnim(nextSectionBtns);
     goLastSection(lastSectionBtns);
 
 }
 
-function goNextSection(nextSectionBtns) {
-    if (!nextSectionBtns?.length) return;
-
-    nextSectionBtns[nextSectionBtns.length - 1].remove();
-    const buttonsArray = Array.from(nextSectionBtns);
-    buttonsArray.forEach(b => {
-        const nextSection = getNextSection(b);
-        if (!nextSection) return;
-
-        b.addEventListener("pointerup", async () => {
-            await gsap.to(window, {
-                duration: 0.9,
-                ease: "power2.inOut",
-                scrollTo: {
-                    y: nextSection,
-                    autoKill: true,
-                },
-            });
-        })
-    })
-}
+// function goNextSection(nextSectionBtns) {
+//     if (!nextSectionBtns?.length) return;
+//
+//     nextSectionBtns[nextSectionBtns.length - 1].remove();
+//     const buttonsArray = Array.from(nextSectionBtns);
+//     buttonsArray.forEach(b => {
+//         const nextSection = getNextSection(b);
+//         if (!nextSection) return;
+//
+//         b.addEventListener("pointerup", async () => {
+//             await gsap.to(window, {
+//                 duration: 0.9,
+//                 ease: "power2.inOut",
+//                 scrollTo: {
+//                     y: nextSection,
+//                     autoKill: true,
+//                 },
+//             });
+//         })
+//     })
+// }
 
 function goLastSection(lastSectionBtns) {
     if (!lastSectionBtns?.length) return;
@@ -57,7 +56,7 @@ function goLastSection(lastSectionBtns) {
     })
 }
 
-function goFirstCategorySection() {
+/*function goFirstCategorySection() {
     const btnBlanket = document.getElementById("to-first-blanket-section");
     const btnCoolbox = document.getElementById("to-first-coolbox-section");
     const firstBlanket = document.getElementById("section-1");
@@ -85,7 +84,7 @@ function goFirstCategorySection() {
             });
         })
     })
-}
+}*/
 
 function nexSectionBtnAnim(nextSectionBtns) {
     if (!nextSectionBtns?.length) return;
@@ -101,18 +100,11 @@ function nexSectionBtnAnim(nextSectionBtns) {
     }
 }
 
-const getNextSection = (b) => {
-    const baseId = "section-";
-    const id = b?.dataset?.id?.replace(baseId, "");
-    if (!id) return;
 
-    const nextId = baseId + (parseInt(id) + 1);
-    return document.getElementById(nextId);
-}
 
-const getLastSection = (b) => {
+const getLastSection = (s) => {
     const baseId = "section-";
-    const id = b?.dataset?.id?.replace(baseId, "");
+    const id = s?.dataset?.id?.replace(baseId, "");
     if (!id) return;
 
     const lastId = baseId + (parseInt(id) - 1);
