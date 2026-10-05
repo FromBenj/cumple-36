@@ -1,16 +1,16 @@
-import {gsap} from "gsap";
-import {ScrollToPlugin} from "gsap/ScrollToPlugin";
-
-gsap.registerPlugin(ScrollToPlugin);
-
-export default async function navigation() {
-    const nextSectionBtns = document.getElementsByClassName("to-next-section");
-    const lastSectionBtns = document.getElementsByClassName("to-last-section");
-
-    nexSectionBtnAnim(nextSectionBtns);
-    goLastSection(lastSectionBtns);
-
-}
+// import {gsap} from "gsap";
+// import {ScrollToPlugin} from "gsap/ScrollToPlugin";
+//
+// gsap.registerPlugin(ScrollToPlugin);
+//
+// export default async function navigation() {
+//     const nextSectionBtns = document.getElementsByClassName("to-next-section");
+//     const lastSectionBtns = document.getElementsByClassName("to-last-section");
+//
+//     nexSectionBtnAnim(nextSectionBtns);
+//     goLastSection(lastSectionBtns);
+//
+// }
 
 // function goNextSection(nextSectionBtns) {
 //     if (!nextSectionBtns?.length) return;
@@ -34,26 +34,26 @@ export default async function navigation() {
 //     })
 // }
 
-function goLastSection(lastSectionBtns) {
-    if (!lastSectionBtns?.length) return;
-
-    const buttonsArray = Array.from(lastSectionBtns);
-    buttonsArray.forEach(b => {
-        const lastSection = getLastSection(b);
-        if (!lastSection) return;
-
-        b.addEventListener("pointerup", async () => {
-            await gsap.to(window, {
-                duration: 0.9,
-                ease: "power2.inOut",
-                scrollTo: {
-                    y: lastSection,
-                    autoKill: true,
-                },
-            });
-        })
-    })
-}
+// function goLastSection(lastSectionBtns) {
+//     if (!lastSectionBtns?.length) return;
+//
+//     const buttonsArray = Array.from(lastSectionBtns);
+//     buttonsArray.forEach(b => {
+//         const lastSection = getLastSection(b);
+//         if (!lastSection) return;
+//
+//         b.addEventListener("pointerup", async () => {
+//             await gsap.to(window, {
+//                 duration: 0.9,
+//                 ease: "power2.inOut",
+//                 scrollTo: {
+//                     y: lastSection,
+//                     autoKill: true,
+//                 },
+//             });
+//         })
+//     })
+// }
 
 /*function goFirstCategorySection() {
     const btnBlanket = document.getElementById("to-first-blanket-section");
@@ -85,27 +85,27 @@ function goLastSection(lastSectionBtns) {
     })
 }*/
 
-function nexSectionBtnAnim(nextSectionBtns) {
-    if (!nextSectionBtns?.length) return;
+// function nexSectionBtnAnim(nextSectionBtns) {
+//     if (!nextSectionBtns?.length) return;
+//
+//     for (let i = 0; i < nextSectionBtns.length; i++) {
+//         gsap.to(nextSectionBtns[i], {
+//             y: -20,
+//             duration: 1.3,
+//             ease: "sine.inOut",
+//             yoyo: true,
+//             repeat: -1,
+//         });
+//     }
+// }
 
-    for (let i = 0; i < nextSectionBtns.length; i++) {
-        gsap.to(nextSectionBtns[i], {
-            y: -20,
-            duration: 1.3,
-            ease: "sine.inOut",
-            yoyo: true,
-            repeat: -1,
-        });
-    }
-}
 
 
-
-const getLastSection = (s) => {
-    const baseId = "section-";
-    const id = s?.dataset?.id?.replace(baseId, "");
-    if (!id) return;
-
-    const lastId = baseId + (parseInt(id) - 1);
-    return document.getElementById(lastId);
-}
+// const getLastSection = (s) => {
+//     const baseId = "section-";
+//     const id = s?.dataset?.id?.replace(baseId, "");
+//     if (!id) return;
+//
+//     const lastId = baseId + (parseInt(id) - 1);
+//     return document.getElementById(lastId);
+// }

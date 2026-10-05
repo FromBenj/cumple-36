@@ -23,7 +23,7 @@ export default function renderSections() {
     if (!app) return;
 
     renderBlankets(app);
-    switchCategory(app)
+    switchCategory(app);
 }
 
 function renderBlankets(app) {
@@ -137,7 +137,7 @@ export function getLastProduct(current) {
 }
 
 function nextButtonAnimation() {
-    const button = document.querySelector(".section-intro.to-next-section");
+    const button = document.querySelector(".to-next-section.to-first-section");
     if (!button) return;
 
     gsap.to(button, {
