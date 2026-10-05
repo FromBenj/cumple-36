@@ -11,7 +11,9 @@
         <div id="{{swiperId}}" class="swiper">
             <div class="swiper-wrapper">
                 {{#images}}
-                    <div class="swiper-slide"><img src="{{.}}" alt="Product slide"></div>
+                    <div class="swiper-slide">
+                        <img src="{{.}}" loading="lazy" alt="Product slide">
+                    </div>
                 {{/images}}
             </div>
             <div class="swiper-pagination"></div>
@@ -37,8 +39,16 @@
             {{/advice}}
         </div>
     </div>
-    <div class="section-footer">
-        <img class="to-next-section-icon" src="/icons/right.svg" alt="Next section button" data-id="{{id}}">
-        <img class="to-last-section-icon" src="/icons/left.svg" alt="Next section button" data-id="{{id}}" data-type= {{type}}>
+    <div class="section-nav">
+        <img class="to-last-section" src="/icons/left.svg" alt="Next section button" data-id="{{id}}"
+             data-category="{{category}}">
+        <div class="{{categoryState.blanket}} section-blanket-button" data-category="blanket">
+            <img src="/icons/m.svg" alt="Blanket icon">
+        </div>
+        <div class="{{categoryState.coolbox}} section-coolbox-button" data-category="coolbox">
+            <img src="/icons/n.svg" alt="Coolbox icon">
+        </div>
+        <img class="to-next-section {{#last}}is-last{{/last}}" src="/icons/right.svg" alt="Next section button" data-id="{{id}}"
+             data-category="{{category}}">
     </div>
 </div>

@@ -1,10 +1,13 @@
 <div id="section-{{id}}" class="section-intro section">
     <img id="palm-trees-img" src="/images/palm-trees.jpg" alt="Palm trees">
     <div id="section-intro-blanket-message">
-        <h2 class="text-italic">Primero</h2>
-        <h1 class="fw-bold">Elige tu mantel de picnic</h1>
+        <h3 class="text-italic">Primero</h3>
+        <h2 class="fw-bold">Elige tu mantel de picnic</h2>
     </div>
     <div id="section-intro-blanket-footer">
-        <img class="to-next-section-icon to-first-section" src="/icons/down.svg" alt="Next section button" data-id="{{id}}" data-type="{{type}}">
+        <div class="to-last-section d-none"></div>
+        <div class="section-blanket-button d-none"></div>
+        <div class="section-coolbox-button d-none"></div>
+        <img class="to-next-section to-first-section" src="/icons/down.svg" alt="Next section button" data-id="{{id}}" data-type="{{type}}">
     </div>
 </div>

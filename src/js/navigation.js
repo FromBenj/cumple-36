@@ -4,10 +4,9 @@ import {ScrollToPlugin} from "gsap/ScrollToPlugin";
 gsap.registerPlugin(ScrollToPlugin);
 
 export default async function navigation() {
-    const nextSectionBtns = document.getElementsByClassName("to-next-section-icon");
-    const lastSectionBtns = document.getElementsByClassName("to-last-section-icon");
+    const nextSectionBtns = document.getElementsByClassName("to-next-section");
+    const lastSectionBtns = document.getElementsByClassName("to-last-section");
 
-    goFirstCategorySection();
     nexSectionBtnAnim(nextSectionBtns);
     goLastSection(lastSectionBtns);
 

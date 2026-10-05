@@ -1,7 +1,7 @@
 const blankets = [
     {
         id: 1,
-        type: "blanket",
+        category: "blanket",
         position: "Uno",
         shop: "La Redoute",
         title: "Nappe de pique-nique feuillage",
@@ -15,7 +15,7 @@ const blankets = [
     },
     {
         id: 2,
-        type: "blanket",
+        category: "blanket",
         position: "Dos",
         shop: "Decathlon",
         title: "Plaid couverture confort pour pique-nique et camping",
@@ -30,7 +30,7 @@ const blankets = [
     },
     {
         id: 3,
-        type: "blanket",
+        category: "blanket",
         position: "Tres",
         shop: "Amazon",
         title: "Couverture pique-nique impermeable avec sangles",
@@ -45,7 +45,7 @@ const blankets = [
     },
     {
         id: 4,
-        type: "blanket",
+        category: "blanket",
         position: "Cuatro",
         shop: "Amazon",
         title: "Tapis de plage léger et anti-sable",

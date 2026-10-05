@@ -12,36 +12,41 @@ const DATA = {
     blanket: blankets,
     coolbox: coolboxes
 };
-
-let productType;
+const TEMPLATES_INTRO = {
+    blanket: blanketIntroTemplate,
+    coolbox: coolboxIntroTemplate
+}
+const CATEGORIES = ["blanket", "coolbox"];
 
 export default function renderSections() {
     const app = document.getElementById("app");
     if (!app) return;
 
     renderBlankets(app);
+    switchCategory(app)
 }
 
 function renderBlankets(app) {
-    productType = "blanket";
-    blanketIntro(app);
-    goNextSection(app);
-
+    sectionIntro(app, "blanket");
 }
 
-function blanketIntro() {
-    if (!app || !blanketIntroTemplate) return;
+function renderCoolboxes(app) {
+    sectionIntro(app, "coolbox");
+}
 
-    const html = Mustache.render(blanketIntroTemplate, {id: 0, type: "blanket"})
-    app.innerHTML = html;
+function sectionIntro(app, category) {
+    const templateIntro = TEMPLATES_INTRO[category];
+    if (!app || !CATEGORIES.includes(category) || !templateIntro) return;
+
+    app.innerHTML = Mustache.render(templateIntro, {id: 0, category: category});
     nextButtonAnimation();
+    goNextSection(app, {id: 0, category: category});
 }
 
-function goNextSection(app) {
-    const button = document.querySelector(".to-next-section-icon");
-    const nextProduct = getNextProduct(button);
-    console.log(nextProduct)
-    if (!app || !nextProduct) return;
+function goNextSection(app, current) {
+    const button = document.querySelector(".to-next-section");
+    const next = getNextProduct(current);
+    if (!app || !next) return;
 
     button.addEventListener("pointerup", async () => {
         const tl = gsap.timeline();
@@ -50,20 +55,63 @@ function goNextSection(app) {
             duration: 0.3
         })
             .call(() => {
-                renderNewSection(app, nextProduct)
+                renderNewSection(app, next);
+                goNextSection(app, next);
+                goLastSection(app, next);
+                switchCategory(app);
             })
             .to(app, {
                 opacity: 1,
                 duration: 0.4
             })
-    })
+    }, {once: true});
 }
 
-function renderNewSection(app, nextProduct) {
-    if (!app || !nextProduct) return;
+function goLastSection(app, current) {
+    const button = document.querySelector(".to-last-section");
+    if (!app || !current) return;
 
-    const swiperId = `${productType}-${nextProduct.id}`;
-    const html = Mustache.render(sectionTemplate, {...nextProduct, swiperId});
+    button.addEventListener("pointerup", async () => {
+        const tl = gsap.timeline();
+
+        const last = current.id - 1 === 0 ? "intro" : getLastProduct(current);
+        if (!last) return;
+
+        tl.to(app, {
+            opacity: 0,
+            duration: 0.3
+        })
+            .call(() => {
+                if (last === "intro") {
+                    current.category === "blanket" ? renderBlankets(app) : renderCoolboxes(app);
+                    return;
+                }
+                renderNewSection(app, last);
+                goNextSection(app, last);
+                goLastSection(app, last);
+                switchCategory(app);
+            })
+            .to(app, {
+                opacity: 1,
+                duration: 0.4
+            })
+    }, {once: true})
+}
+
+function renderNewSection(app, product) {
+    const category = product?.category;
+    if (!app || !CATEGORIES.includes(category)) return;
+
+    const categoryState = {
+        blanket: category === "blanket" ? "active" : "",
+        coolbox: category === "coolbox" ? "active" : "",
+    }
+
+    const ids = DATA[category].map((p => p.id));
+    const last = product.id === Math.max(...ids);
+
+    const swiperId = `${category}-${product.id}`;
+    const html = Mustache.render(sectionTemplate, {...product, swiperId, last, categoryState});
     app.innerHTML = html;
 
     new Swiper(`#${swiperId}.swiper`, {
@@ -77,21 +125,20 @@ function renderNewSection(app, nextProduct) {
         },
     });
 
-    nextButtonAnimation();
-    goNextSection(app);
 }
 
-export function getNextProduct(button) {
-    const id = button?.dataset?.id;
-    if (!id || !button) return null;
+export function getNextProduct(current) {
+    return DATA[current.category]?.find(p => p.id === current.id + 1) ?? null;
+}
 
-    return DATA[productType]?.find(p => p.id === parseInt(id) + 1);
+export function getLastProduct(current) {
+    if (!current || !CATEGORIES.includes(current.category)) return null;
+    return DATA[current.category]?.find(p => p.id === current.id - 1) ?? null;
 }
 
 function nextButtonAnimation() {
-    const section = document.querySelector(".section-intro");
-    const button = document.querySelector(".to-next-section-icon");
-    if (!section || !button) return;
+    const button = document.querySelector(".section-intro.to-next-section");
+    if (!button) return;
 
     gsap.to(button, {
         y: -20,
@@ -102,71 +149,11 @@ function nextButtonAnimation() {
     });
 }
 
+function switchCategory(app) {
+    const blanketBtn = document.querySelector(".section-blanket-button");
+    const coolboxBtn = document.querySelector(".section-coolbox-button");
+    if (!blanketBtn || !coolboxBtn) return;
 
-// export default function renderSections() {
-//     const sectionProducts = document.getElementById("section-products");
-//     if (!sectionProducts) return;
-//
-//     renderBlanketIntro(sectionProducts);
-//     renderBlanketCarousel(sectionProducts);
-//
-//     renderCoolboxIntro(sectionProducts);
-//     renderCoolboxCarousel(sectionProducts);
-// }
-//
-// function renderBlanketIntro(sectionProducts) {
-//     if (!sectionProducts || !blanketIntroTemplate) return;
-//
-//     const html = Mustache.render(blanketIntroTemplate)
-//     sectionProducts.insertAdjacentHTML("afterbegin", html);
-// }
-//
-// function renderCoolboxIntro(sectionProducts) {
-//     if (!sectionProducts || !coolboxIntroTemplate) return;
-//
-//     const html = Mustache.render(coolboxIntroTemplate)
-//     sectionProducts.insertAdjacentHTML("beforeend", html);
-// }
-//
-// function renderBlanketCarousel(sectionProducts) {
-//     if (!sectionProducts || !blankets?.length) return;
-//
-//     blankets.forEach((b) => {
-//         const swiperId = `blanket-${b.id}`;
-//         const html = Mustache.render(sectionTemplate, {...b, swiperId});
-//         sectionProducts.insertAdjacentHTML("beforeend", html);
-//
-//         new Swiper(`#${swiperId}.swiper`, {
-//             modules: [Pagination],
-//             loop: true,
-//             speed: 400,
-//             spaceBetween: 100,
-//             pagination: {
-//                 el: '.swiper-pagination',
-//                 type: 'bullets',
-//             },
-//         });
-//     })
-// }
-//
-// function renderCoolboxCarousel(sectionProducts) {
-//     if (!sectionProducts || !coolboxes?.length) return;
-//
-//     coolboxes.forEach((c) => {
-//         const swiperId = `coolbox-${c.id}`;
-//         const html = Mustache.render(sectionTemplate, {...c, swiperId});
-//         sectionProducts.insertAdjacentHTML("beforeend", html);
-//
-//         new Swiper(`#${swiperId}.swiper`, {
-//             modules: [Pagination],
-//             loop: true,
-//             speed: 400,
-//             spaceBetween: 100,
-//             pagination: {
-//                 el: '.swiper-pagination',
-//                 type: 'bullets',
-//             },
-//         });
-//     })
-// }
-
+    blanketBtn.addEventListener('click', () => renderBlankets(app));
+    coolboxBtn.addEventListener("click", () => renderCoolboxes(app));
+}
