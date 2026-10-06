@@ -86,7 +86,6 @@ const mainLoginAppears = () => {
     const koala = document.getElementById("koala-no-mames");
     const btn = document.getElementById("login-leave-button-container");
     if (!header || !content || !message || !koala || !btn) return;
-    console.log(koala)
 
     const tl = gsap.timeline();
     tl.to([header, content], {
@@ -108,13 +107,13 @@ const mainLoginAppears = () => {
             duration: 0.2,
         })
         .to(koala, {
-            rotation: 5,
+            rotation: 10,
             duration: 0.05,
             repeat: -1,
             yoyo: true
         })
         .to(koala, {
-            delay: 3,
+            delay: 2.5,
             opacity: 0,
             duration: 0.2,
             onComplete: () => koala.remove()
